@@ -1,6 +1,7 @@
 import React from "react"
 import Head from 'next/head'
 import Link from 'next/link'
+import regeneratorRuntime from "regenerator-runtime";
 
 import { Grid, Typography, makeStyles } from "@material-ui/core"
 
@@ -11,8 +12,9 @@ import Header from "../components/home/Header"
 import Divider from "../components/home/Divider"
 import TrendBanners from "../components/home/TrendBanners"
 import VideoBanner from "../components/home/VideoBanner"
-
-import regeneratorRuntime from "regenerator-runtime";
+import OptionsBanner from "../components/home/OptionsBanner"
+import CelebrityBannerHeader from "../components/home/CelebrityBannerHeader"
+import CelebrityBanner from "../components/home/CelebrityBanner"
 
 const useStyles = makeStyles((theme) => ({
   homePage: {
@@ -48,9 +50,16 @@ export default (props) => {
                 <Header data={ homebanner }  />
                 <Divider margin="50" />
                 <Grid className={classes.homePageMainBodyGrid}>
-                  <TrendBanners classData={classes} data={trendbanners} />
+                  <TrendBanners data={trendbanners}  classData={classes} />
                   <Divider margin="50" />
                   <VideoBanner data={videobanner} classData={classes} />
+                  <Divider margin="50" />
+                  <OptionsBanner data={optionbanners} classData={classes} />
+                  <Divider margin="50" />
+                  <CelebrityBannerHeader classData={classes} />
+                  <Divider margin="23" />
+                  <CelebrityBanner data={celebritybanners} classData={classes} />
+                  <Divider margin="67" />
                 </Grid>
               </Grid>
             </Layout>
