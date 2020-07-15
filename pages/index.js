@@ -1,39 +1,27 @@
 import React from "react"
-import regeneratorRuntime from "regenerator-runtime";
-
 import Head from 'next/head'
 import Link from 'next/link'
-import Layout from '../components/layout.js'
 
 import { Grid, Typography, makeStyles } from "@material-ui/core"
 
 import { getHome } from "../functions"
 
-import Header from "../components/home/Header.js"
+import Layout from '../components/layout'
+import Header from "../components/home/Header"
+import Divider from "../components/home/Divider"
+import TrendBanners from "../components/home/TrendBanners"
 
 const useStyles = makeStyles((theme) => ({
-  image: {
-    background:"grey",
-    height:"250px",
-    width:"250px",
-    borderRadius:"50%",
-    backgroundColor:"#ffe5b4"
+  homePage: {
+    // maxWidth: '1180px',
+    margin: '0 auto',
+    overflow: 'hidden'
   },
-  actionText: {
-    textTransform:"uppercase",
-    textAlign:"center",
-    borderBottom:"1px solid",
-    width:"fit-content",
-    margin:"10px auto",
-    color:"black"
-  },
-  actionLink: {
-    color:"black",
-    textDecoration:"none"
-  },
-  mainGrid: {
-    maxWidth:"775px",
-    margin:"50px 0"
+  homePageMainBodyGrid: {
+    padding: '0 40px',
+    [theme.breakpoints.down('sm')]: {
+      padding: '0'
+    }
   }
 }))
 
@@ -53,8 +41,12 @@ export default (props) => {
    } = props
 
    return <Layout>
-              <Grid className={ classes.texting }>
-                <Header data={ homebanner } classData={classes} />
+              <Grid>
+                <Header data={ homebanner }  />
+                <Divider margin="50" />
+                <Grid className={classes.homePageMainBodyGrid}>
+                  <TrendBanners classData={classes} data={trendbanners} />
+                </Grid>
               </Grid>
             </Layout>
 
