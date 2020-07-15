@@ -90,18 +90,18 @@ const useStyles = makeStyles((theme) => ({
     }
   },
   homePageHeaderLevelOne: {
-    // ...theme.typography.h1Alt,
-    // color: theme.palette.primary.light,
+    ...theme.typography.h1Alt,
+    color: theme.palette.primary.light,
     maxHeight: '116px'
   },
   homePageSubHeader: {
     textShadow: ' -1px 1px 0 #5b6770',
     maxHeight: '70px',
     marginBottom: '20px',
-    // color: theme.palette.primary.light
+    color: theme.palette.primary.light
   },
   homePageHeaderButton: {
-    // ...theme.buttons.lightButtonHover,
+    ...theme.buttons.lightButtonHover,
     margin: 'initial'
   },
   homePageHeaderOuterGrid: {

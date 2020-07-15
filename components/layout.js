@@ -1,6 +1,7 @@
-import React from "react"
-import { useEffect } from "react"
+import React, { useEffect } from "react"
 import Head from 'next/head'
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from "../theme.js"
 
 export default ({ children }) => {
 
@@ -16,11 +17,13 @@ export default ({ children }) => {
     }
   },[])
 
-  return <div style={{ maxWidth:"1180px", margin:"20px auto" }}>
+  return <div>
           <Head>
             <title>HomePage Demo</title>
             <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
           </Head>
-          { children }
+            <ThemeProvider theme={ theme }>
+              { children }
+            </ThemeProvider>
           </div>
 }
