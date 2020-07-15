@@ -10,6 +10,9 @@ import Layout from '../components/layout'
 import Header from "../components/home/Header"
 import Divider from "../components/home/Divider"
 import TrendBanners from "../components/home/TrendBanners"
+import VideoBanner from "../components/home/VideoBanner"
+
+import regeneratorRuntime from "regenerator-runtime";
 
 const useStyles = makeStyles((theme) => ({
   homePage: {
@@ -46,6 +49,8 @@ export default (props) => {
                 <Divider margin="50" />
                 <Grid className={classes.homePageMainBodyGrid}>
                   <TrendBanners classData={classes} data={trendbanners} />
+                  <Divider margin="50" />
+                  <VideoBanner data={videobanner} classData={classes} />
                 </Grid>
               </Grid>
             </Layout>
