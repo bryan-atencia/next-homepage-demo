@@ -7,11 +7,11 @@ import Layout from '../components/layout.js'
 
 import { Grid, Typography, makeStyles } from "@material-ui/core"
 
+import { getHome } from "../functions"
+
+import Header from "../components/home/Header.js"
+
 const useStyles = makeStyles((theme) => ({
-  texting: {
-    color:"pink",
-    background:"green"
-  },
   image: {
     background:"grey",
     height:"250px",
@@ -40,18 +40,32 @@ const useStyles = makeStyles((theme) => ({
 export default (props) => {
 
    const classes = useStyles(props)
+   const {
+     data: {
+       homebanner,
+       trendbanners,
+       videobanner,
+       optionbanners,
+       options,
+       celebritybanners,
+       mediabanners
+     }
+   } = props
 
-    return <Layout>
-              <Grid className={ classes.texting }>here</Grid>
+   return <Layout>
+              <Grid className={ classes.texting }>
+                <Header data={ homebanner } classData={classes} />
+              </Grid>
             </Layout>
 
 }
 
 export async function getStaticProps() {
+
   return {
     props: {
       fallback: true,
-      data: []
+      data: await getHome()
     }
   }
 }
